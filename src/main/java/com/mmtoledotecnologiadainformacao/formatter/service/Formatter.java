@@ -10,7 +10,7 @@ public class Formatter {
         CENTER;
     }
 
-    public static String format(String input, Alignment alignment) {
+    public static String format(String input, Alignment alignment, int width) {
         return "This text \nshould be \nleft \naligned ";
     }
 }

@@ -13,7 +13,7 @@ public class FormatterTest {
     public void shouldReturnTextLeftAlignedWithWidth10() throws Exception {
         String input = "This text should be left aligned ";
 
-        String output = Formatter.format(input, LEFT);
+        String output = Formatter.format(input, LEFT, 10);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -23,7 +23,7 @@ public class FormatterTest {
     public void shouldReturnTextLeftAlignedWithWidth20() throws Exception {
         String input = "This text should be left aligned ";
 
-        String output = Formatter.format(input, LEFT);
+        String output = Formatter.format(input, LEFT, 20);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -33,7 +33,7 @@ public class FormatterTest {
     public void shouldReturnTextRightAlignedWithWidth10() throws Exception {
         String input = "This text should be right aligned ";
 
-        String output = Formatter.format(input, RIGHT);
+        String output = Formatter.format(input, RIGHT, 10);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -43,7 +43,7 @@ public class FormatterTest {
     public void shouldReturnTextRightAlignedWithWidth20() throws Exception {
         String input = "This text should be right aligned ";
 
-        String output = Formatter.format(input, RIGHT);
+        String output = Formatter.format(input, RIGHT, 20);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -53,7 +53,7 @@ public class FormatterTest {
     public void shouldReturnTextCenterAlignedWithWidth10() throws Exception {
         String input = "This text should be center aligned ";
 
-        String output = Formatter.format(input, CENTER);
+        String output = Formatter.format(input, CENTER, 10);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -63,7 +63,7 @@ public class FormatterTest {
     public void shouldReturnTextCenterAlignedWithWidth20() throws Exception {
         String input = "This text should be center aligned ";
 
-        String output = Formatter.format(input, CENTER);
+        String output = Formatter.format(input, CENTER, 20);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
