@@ -2,7 +2,15 @@ package com.mmtoledotecnologiadainformacao.formatter.service;
 
 public class Formatter {
 
-    public static String format(String input) {
+    private Alignment alignment;
+
+    public enum Alignment {
+        LEFT,
+        RIGHT,
+        CENTER;
+    }
+
+    public static String format(String input, Alignment alignment) {
         return "This text \nshould be \nleft \naligned ";
     }
 }
