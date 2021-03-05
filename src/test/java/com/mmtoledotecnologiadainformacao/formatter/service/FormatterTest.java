@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test;
 import static com.mmtoledotecnologiadainformacao.formatter.service.Formatter.Alignment.*;
 
 public class FormatterTest {
+//    TODO: add more test cases
+//    smaller than width
+//    string bigger than width
+//    empty string
+//    just space
+
 
     Formatter formatter = new Formatter();
 
