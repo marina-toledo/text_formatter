@@ -19,14 +19,14 @@ public class Formatter {
             final int indexToBreak = input.lastIndexOf(" ", endLineLimit);
             output.append(input, startLine, indexToBreak);
 
-            startLine = indexToBreak + 1;
-            endLineLimit += width;
-
-//            for (int i = 0; i < (width - indexToBreak); i++) {
+            for (int i = 0; i < (endLineLimit - indexToBreak); i++) {
                 output.append(" ");
-//            }
+            }
 
-            if(startLine < input.length()){
+            startLine = indexToBreak + 1;
+            endLineLimit = startLine + width;
+
+            if (startLine < input.length()) {
                 output.append("\n");
             }
         }
