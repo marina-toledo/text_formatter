@@ -2,13 +2,15 @@ package com.mmtoledotecnologiadainformacao.formatter.service;
 
 public class TextAligner {
 
-//    TODO:
-//    let it static like Math.floor
-//    decide how to initialize different types, using factory, strategy, etc?
-//    standard in and out
-//    create deployment flow using github and heroku and publish into maven
+    /**
+     * Don't let anyone instantiate this class.
+     */
+    private TextAligner() {
+    }
 
-    private Alignment alignment;
+//    TODO:
+//    decide how to initialize different types, using factory, strategy, etc?
+//    create deployment flow using github and heroku and publish into maven
 
     public enum Alignment {
         LEFT,
@@ -24,9 +26,9 @@ public class TextAligner {
                 return formatRight(input, width);
             case CENTER:
                 return formatCenter(input, width);
+            default:
+                return input;
         }
-
-        return input;
     }
 
     public static String formatLeft(String input, int width) {
