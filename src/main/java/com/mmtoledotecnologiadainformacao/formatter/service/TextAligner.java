@@ -6,7 +6,6 @@ public class TextAligner {
 //    let it static like Math.floor
 //    decide how to initialize different types, using factory, strategy, etc?
 //    standard in and out
-//    remove spring dependencies, just use junit
 //    create deployment flow using github and heroku and publish into maven
 
     private Alignment alignment;
