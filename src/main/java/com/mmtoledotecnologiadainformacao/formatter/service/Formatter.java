@@ -2,6 +2,13 @@ package com.mmtoledotecnologiadainformacao.formatter.service;
 
 public class Formatter {
 
+//    TODO:
+//    let it static like Math.floor
+//    decide how to initialize different types, using factory, strategy, etc?
+//    standard in and out
+//    remove spring dependencies, just use junit
+//    create deployment flow using github and heroku and publish into maven
+
     private Alignment alignment;
 
     public enum Alignment {
@@ -11,10 +18,13 @@ public class Formatter {
     }
 
     public static String format(String input, Alignment alignment, int width) {
-        switch (alignment){
-            case LEFT: return formatLeft(input, width);
-            case RIGHT: return formatRight(input, width);
-            case CENTER: return formatCenter(input, width);
+        switch (alignment) {
+            case LEFT:
+                return formatLeft(input, width);
+            case RIGHT:
+                return formatRight(input, width);
+            case CENTER:
+                return formatCenter(input, width);
         }
 
         return input;
@@ -51,11 +61,13 @@ public class Formatter {
 //
 //        while (startLine < input.length()) {
 //            final int indexToBreak = input.lastIndexOf(" ", endLineLimit);
-//            output.append(input, startLine, indexToBreak);
+//            String substring = input.substring(startLine, endLineLimit).trim();
 //
-//            for (int i = 0; i < (endLineLimit - indexToBreak); i++) {
+//            for (int i = 0; i < (width - substring.length()); i++) {
 //                output.append(" ");
 //            }
+//
+//            output.append(substring);
 //
 //            startLine = indexToBreak + 1;
 //            endLineLimit = startLine + width;

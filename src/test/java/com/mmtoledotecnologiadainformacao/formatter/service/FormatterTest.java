@@ -11,7 +11,8 @@ public class FormatterTest {
 //    string bigger than width
 //    empty string
 //    just space
-
+//    when words break exactly in the limits : start and end
+//    different sizes of space between words
 
     Formatter formatter = new Formatter();
 
