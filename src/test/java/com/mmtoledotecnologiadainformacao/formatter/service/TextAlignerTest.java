@@ -3,9 +3,9 @@ package com.mmtoledotecnologiadainformacao.formatter.service;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static com.mmtoledotecnologiadainformacao.formatter.service.Formatter.Alignment.*;
+import static com.mmtoledotecnologiadainformacao.formatter.service.TextAligner.Alignment.*;
 
-public class FormatterTest {
+public class TextAlignerTest {
 //    TODO: add more test cases
 //    smaller than width
 //    string bigger than width
@@ -14,13 +14,13 @@ public class FormatterTest {
 //    when words break exactly in the limits : start and end
 //    different sizes of space between words
 
-    Formatter formatter = new Formatter();
+    TextAligner textAligner = new TextAligner();
 
     @Test
     public void shouldReturnTextLeftAlignedWithWidth10() throws Exception {
         String input = "This text should be left aligned ";
 
-        String output = Formatter.format(input, LEFT, 10);
+        String output = TextAligner.format(input, LEFT, 10);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -30,7 +30,7 @@ public class FormatterTest {
     public void shouldReturnTextLeftAlignedWithWidth20() throws Exception {
         String input = "This text should be left aligned ";
 
-        String output = Formatter.format(input, LEFT, 20);
+        String output = TextAligner.format(input, LEFT, 20);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -40,7 +40,7 @@ public class FormatterTest {
     public void shouldReturnTextRightAlignedWithWidth10() throws Exception {
         String input = "This text should be right aligned ";
 
-        String output = Formatter.format(input, RIGHT, 10);
+        String output = TextAligner.format(input, RIGHT, 10);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -50,7 +50,7 @@ public class FormatterTest {
     public void shouldReturnTextRightAlignedWithWidth20() throws Exception {
         String input = "This text should be right aligned ";
 
-        String output = Formatter.format(input, RIGHT, 20);
+        String output = TextAligner.format(input, RIGHT, 20);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -60,7 +60,7 @@ public class FormatterTest {
     public void shouldReturnTextCenterAlignedWithWidth10() throws Exception {
         String input = "This text should be center aligned ";
 
-        String output = Formatter.format(input, CENTER, 10);
+        String output = TextAligner.format(input, CENTER, 10);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -70,7 +70,7 @@ public class FormatterTest {
     public void shouldReturnTextCenterAlignedWithWidth20() throws Exception {
         String input = "This text should be center aligned ";
 
-        String output = Formatter.format(input, CENTER, 20);
+        String output = TextAligner.format(input, CENTER, 20);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }

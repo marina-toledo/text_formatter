@@ -1,6 +1,6 @@
 package com.mmtoledotecnologiadainformacao.formatter.service;
 
-public class Formatter {
+public class TextAligner {
 
 //    TODO:
 //    let it static like Math.floor
