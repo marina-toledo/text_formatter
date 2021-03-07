@@ -74,12 +74,12 @@ public class TextAligner {
                 startIndex++;
             }
 
-            if (endIndex < input.length() - 1 && input.charAt(endIndex) == ' ') {
+            if (endIndex < input.length() - 1 && input.charAt(endIndex + 1) == ' ') {
                 endIndex++;
             }
 
             // define substring to be used in the current line
-            String substringForLine = input.substring(startIndex, endIndex + 1);
+            String substringForLine = input.substring(startIndex, endIndex + 1).trim();
 
             // find index to break
             int indexToBreak = substringForLine.lastIndexOf(" ", endIndex);
