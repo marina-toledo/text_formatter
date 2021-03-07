@@ -81,14 +81,18 @@ public class TextAligner {
             // define substring to be used in the current line
             String substringForLine = input.substring(startIndex, endIndex + 1).trim();
 
-            // find index to break
-            int indexToBreak = substringForLine.lastIndexOf(" ", endIndex);
+            // break line if necessary and if we can put last word to next line
+            if (endIndex + 1 < input.length() && input.charAt(endIndex + 1) != ' ' && input.charAt(endIndex) != ' ') {
+                int indexToBreak = substringForLine.lastIndexOf(" ", endIndex);
 
-            if (indexToBreak == -1) {
-                indexToBreak = Math.min(substringForLine.length() - 1, width - 1);
+                if (indexToBreak == -1) {
+                    indexToBreak = width - 1;
+                }
+
+                substringForLine = substringForLine.substring(0, indexToBreak + 1).trim();
+
+                endIndex = startIndex + indexToBreak;
             }
-
-            substringForLine = substringForLine.substring(0, indexToBreak + 1);
 
             //add half of the spaces at left to align
             for (int i = 0; i < (width - substringForLine.length()) / 2; i++) {
@@ -104,7 +108,7 @@ public class TextAligner {
             }
 
             //update variables to next loop
-            startIndex += indexToBreak + 1;
+            startIndex = endIndex + 1;
 
             //add next line if there will be a next line
             if (startIndex < input.length()) {

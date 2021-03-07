@@ -1,7 +1,6 @@
 package com.mmtoledotecnologiadainformacao.formatter.service;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class CenterAlignerTest {
@@ -86,35 +85,32 @@ public class CenterAlignerTest {
         Assertions.assertEquals("0123456789ABCDEFGHIJ\n     0123456789     ", output);
     }
 
-    @Disabled
     @Test
     public void inputHasContiguousSpacesBetweenWords() {
-        String input = "0123456789   0123456789";
+        String input = "0123456789ABCDEFGHIJ   0123456789";
 
         String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
-        Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
+        Assertions.assertEquals("0123456789ABCDEFGHIJ\n     0123456789     ", output);
     }
 
     // some random cases above
 
-    @Disabled
     @Test
     public void shouldReturnTextCenterAlignedWithWidth10() {
         String input = "This text should be center aligned ";
 
         String output = TextAligner.formatCenter(input, 10);
 
-        Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
+        Assertions.assertEquals("This text \nshould be \n  center  \n aligned  ", output);
     }
 
-    @Disabled
     @Test
     public void shouldReturnTextCenterAlignedWithWidth20() {
         String input = "This text should be center aligned ";
 
         String output = TextAligner.formatCenter(input, 20);
 
-        Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
+        Assertions.assertEquals("This text should be \n   center aligned   ", output);
     }
 }
