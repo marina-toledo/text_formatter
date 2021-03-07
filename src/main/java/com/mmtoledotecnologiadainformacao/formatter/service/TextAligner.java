@@ -65,9 +65,10 @@ public class TextAligner {
 
         StringBuilder output = new StringBuilder();
         int startIndex = 0;
-        int endIndex = Math.min(startIndex + width - 1, input.length() - 1);
 
         while (startIndex < input.length()) {
+            int endIndex = Math.min(startIndex + width - 1, input.length() - 1);
+
             // adjust for possible initial and ending spaces
             if (startIndex < input.length() - 1 && input.charAt(startIndex) == ' ') {
                 startIndex++;
@@ -104,7 +105,6 @@ public class TextAligner {
 
             //update variables to next loop
             startIndex += indexToBreak + 1;
-            endIndex = Math.min(startIndex + width - 1, input.length() - 1);
 
             //add next line if there will be a next line
             if (startIndex < input.length()) {
