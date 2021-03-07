@@ -70,7 +70,7 @@ public class TextAligner {
             int indexToBreak = input.lastIndexOf(" ", endIndex);
 
             if (indexToBreak == -1) {
-                indexToBreak = input.length() - 1;
+                indexToBreak = Math.min(input.length() - 1, endIndex);
             }
 
             //add half of the spaces at left to align
@@ -82,13 +82,13 @@ public class TextAligner {
             output.append(input, startIndex, indexToBreak + 1);
 
             //add half of the spaces at right to align, add one space if needed for odd number
-            for (int i = 0; i < Math.ceil(endIndex - indexToBreak) / 2.0; i++) {
+            for (int i = 0; i < Math.round((endIndex - indexToBreak) / 2.0); i++) {
                 output.append(" ");
             }
 
             //update variables to next loop
             startIndex = indexToBreak + 1;
-            endIndex = startIndex + width;
+            endIndex = startIndex + width - 1;
 
             //add next line if there will be a next line
             if (startIndex < input.length()) {

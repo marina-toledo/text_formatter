@@ -44,24 +44,25 @@ public class CenterAlignerTest {
         Assertions.assertEquals("     0123456789      ", output);
     }
 
-    @Disabled
+//    TODO: add test cases for input smaller than width with space in the middle
+//    TODO: add test cases for inputIsBiggerThanWidth with odd and even variations
+
     @Test
     public void inputIsBiggerThanWidth() {
-        String input = "01234567890123456789 01234567890123456789";
+        String input = "0123456789ABCDEFGHIJ0123456789ABCDEFGHIJ";
 
         String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
-        Assertions.assertEquals("01234567890123456789\n01234567890123456789", output);
+        Assertions.assertEquals("0123456789ABCDEFGHIJ\n0123456789ABCDEFGHIJ", output);
     }
 
-    @Disabled
     @Test
     public void inputIsAnEmptyString() {
         String input = "";
 
         String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
-        Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
+        Assertions.assertEquals("", output);
     }
 
     @Disabled
@@ -71,7 +72,7 @@ public class CenterAlignerTest {
 
         String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
-        Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
+        Assertions.assertEquals("    ", output);
     }
 
     @Disabled
