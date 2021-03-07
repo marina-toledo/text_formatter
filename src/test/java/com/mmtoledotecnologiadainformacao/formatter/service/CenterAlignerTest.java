@@ -4,6 +4,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class CenterAlignerTest {
+
+//    TODO: add test cases for input smaller than width with space in the middle
+//    TODO: add test cases for inputIsBiggerThanWidth with odd and even variations
+//    TODO: add test cases for LineBreaksExactlyBetweenWords with space at the end of line and beginning of line
+//    TODO: add new test cases for creation of new line when last char is a space
+//    TODO: add new test cases for input with more lines
+
     int EVEN_WIDTH = 20;
     int ODD_WIDTH = 21;
 
@@ -42,12 +49,6 @@ public class CenterAlignerTest {
 
         Assertions.assertEquals("     0123456789      ", output);
     }
-
-//    TODO: add test cases for input smaller than width with space in the middle
-//    TODO: add test cases for inputIsBiggerThanWidth with odd and even variations
-//    TODO: add test cases for LineBreaksExactlyBetweenWords with space at the end of line and beginning of line
-//    TODO: add new test cases for creation of new line when last char is a space
-//    TODO: add new test cases for input with more lines
 
     @Test
     public void inputIsBiggerThanWidth() {
