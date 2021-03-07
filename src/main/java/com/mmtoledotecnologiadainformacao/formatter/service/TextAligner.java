@@ -2,6 +2,8 @@ package com.mmtoledotecnologiadainformacao.formatter.service;
 
 public class TextAligner {
 
+    static String SEPARATOR_REGEX = "[ ,:!.;]";
+
     /**
      * Don't let anyone instantiate this class.
      */
@@ -60,25 +62,53 @@ public class TextAligner {
 
     public static String formatCenter(String input, int width) {
         StringBuilder output = new StringBuilder();
-//        int startLine = 0;
-//        int endLineLimit = width;
-//
-//        while (startLine < input.length()) {
-//            final int indexToBreak = input.lastIndexOf(" ", endLineLimit);
-//            output.append(input, startLine, indexToBreak);
-//
-//            for (int i = 0; i < (endLineLimit - indexToBreak); i++) {
-//                output.append(" ");
-//            }
-//
-//            startLine = indexToBreak + 1;
-//            endLineLimit = startLine + width;
-//
-//            if (startLine < input.length()) {
-//                output.append("\n");
-//            }
-//        }
+        int startIndex = 0;
+        int endIndex = width - 1;
+
+        while (startIndex < input.length()) {
+            // find index to break
+            int indexToBreak = input.lastIndexOf(" ", endIndex);
+
+            if (indexToBreak == -1) {
+                indexToBreak = input.length() - 1;
+            }
+
+            //add half of the spaces at left to align
+            for (int i = 0; i < (endIndex - indexToBreak) / 2; i++) {
+                output.append(" ");
+            }
+
+            //add words
+            output.append(input, startIndex, indexToBreak + 1);
+
+            //add half of the spaces at right to align, add one space if needed for odd number
+            for (int i = 0; i < Math.ceil(endIndex - indexToBreak) / 2.0; i++) {
+                output.append(" ");
+            }
+
+            //update variables to next loop
+            startIndex = indexToBreak + 1;
+            endIndex = startIndex + width;
+
+            //add next line if there will be a next line
+            if (startIndex < input.length()) {
+                output.append("\n");
+            }
+        }
 
         return output.toString();
+    }
+
+    //TODO: use and test in the future
+    private int lastIndexOf(String word, int start, int end, String regex) {
+        int indexToBreak = -1;
+
+        for (int i = end; i > start; i--) {
+            if (word.substring(i, i).matches(SEPARATOR_REGEX)) {
+                indexToBreak = i;
+                break;
+            }
+        }
+        return indexToBreak;
     }
 }
