@@ -65,17 +65,29 @@ public class TextAligner {
 
         StringBuilder output = new StringBuilder();
         int startIndex = 0;
-        int endIndex = width - 1;
+        int endIndex = Math.min(startIndex + width - 1, input.length() - 1);
 
         while (startIndex < input.length()) {
-            // find index to break
-            int indexToBreak = input.lastIndexOf(" ", endIndex);
-
-            if (indexToBreak == -1) {
-                indexToBreak = Math.min(input.length() - 1, endIndex);
+            // adjust for possible initial and ending spaces
+            if (startIndex < input.length() - 1 && input.charAt(startIndex) == ' ') {
+                startIndex++;
             }
 
-            String substringForLine = input.substring(startIndex, indexToBreak + 1);
+            if (endIndex < input.length() - 1 && input.charAt(endIndex) == ' ') {
+                endIndex++;
+            }
+
+            // define substring to be used in the current line
+            String substringForLine = input.substring(startIndex, endIndex + 1);
+
+            // find index to break
+            int indexToBreak = substringForLine.lastIndexOf(" ", endIndex);
+
+            if (indexToBreak == -1) {
+                indexToBreak = Math.min(substringForLine.length() - 1, width - 1);
+            }
+
+            substringForLine = substringForLine.substring(0, indexToBreak + 1);
 
             //add half of the spaces at left to align
             for (int i = 0; i < (width - substringForLine.length()) / 2; i++) {
@@ -91,8 +103,8 @@ public class TextAligner {
             }
 
             //update variables to next loop
-            startIndex = indexToBreak + 1;
-            endIndex = startIndex + width - 1;
+            startIndex += indexToBreak + 1;
+            endIndex = Math.min(startIndex + width - 1, input.length() - 1);
 
             //add next line if there will be a next line
             if (startIndex < input.length()) {
