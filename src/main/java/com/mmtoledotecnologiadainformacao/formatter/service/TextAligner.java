@@ -75,16 +75,18 @@ public class TextAligner {
                 indexToBreak = Math.min(input.length() - 1, endIndex);
             }
 
+            String substringForLine = input.substring(startIndex, indexToBreak + 1);
+
             //add half of the spaces at left to align
-            for (int i = 0; i < (endIndex - indexToBreak) / 2; i++) {
+            for (int i = 0; i < (width - substringForLine.length()) / 2; i++) {
                 output.append(" ");
             }
 
             //add words
-            output.append(input, startIndex, indexToBreak + 1);
+            output.append(substringForLine);
 
             //add half of the spaces at right to align, add one space if needed for odd number
-            for (int i = 0; i < Math.round((endIndex - indexToBreak) / 2.0); i++) {
+            for (int i = 0; i < Math.round((width - substringForLine.length()) / 2.0); i++) {
                 output.append(" ");
             }
 
