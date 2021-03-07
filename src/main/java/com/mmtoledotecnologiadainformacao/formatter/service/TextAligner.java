@@ -8,29 +8,6 @@ public class TextAligner {
     private TextAligner() {
     }
 
-//    TODO:
-//    decide how to initialize different types, using factory, strategy, etc?
-//    create deployment flow using github and heroku and publish into maven
-
-    public enum Alignment {
-        LEFT,
-        RIGHT,
-        CENTER;
-    }
-
-    public static String format(String input, Alignment alignment, int width) {
-        switch (alignment) {
-            case LEFT:
-                return formatLeft(input, width);
-            case RIGHT:
-                return formatRight(input, width);
-            case CENTER:
-                return formatCenter(input, width);
-            default:
-                return input;
-        }
-    }
-
     public static String formatLeft(String input, int width) {
         StringBuilder output = new StringBuilder();
         int startLine = 0;
