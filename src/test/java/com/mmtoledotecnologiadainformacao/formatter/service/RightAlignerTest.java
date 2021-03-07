@@ -1,10 +1,12 @@
 package com.mmtoledotecnologiadainformacao.formatter.service;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class RightAlignerTest {
 
+    @Disabled
     @Test
     public void shouldReturnTextRightAlignedWithWidth10() {
         String input = "This text should be right aligned ";
@@ -15,6 +17,7 @@ public class RightAlignerTest {
     }
 
 
+    @Disabled
     @Test
     public void shouldReturnTextRightAlignedWithWidth20() {
         String input = "This text should be right aligned ";
