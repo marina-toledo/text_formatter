@@ -3,27 +3,23 @@ package com.mmtoledotecnologiadainformacao.formatter.service;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static com.mmtoledotecnologiadainformacao.formatter.service.TextAligner.Alignment.RIGHT;
-
 public class RightAlignerTest {
 
-    TextAligner textAligner = new TextAligner();
-
     @Test
-    public void shouldReturnTextRightAlignedWithWidth10() throws Exception {
+    public void shouldReturnTextRightAlignedWithWidth10() {
         String input = "This text should be right aligned ";
 
-        String output = TextAligner.format(input, RIGHT, 10);
+        String output = TextAligner.formatRight(input, 10);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
 
 
     @Test
-    public void shouldReturnTextRightAlignedWithWidth20() throws Exception {
+    public void shouldReturnTextRightAlignedWithWidth20() {
         String input = "This text should be right aligned ";
 
-        String output = TextAligner.format(input, RIGHT, 20);
+        String output = TextAligner.formatRight(input, 20);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
