@@ -5,45 +5,43 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class CenterAlignerTest {
-    int WIDTH = 20;
+    int EVEN_WIDTH = 20;
+    int ODD_WIDTH = 21;
 
-    @Disabled
     @Test
     public void OddInputIsSmallerThanOddWidth() {
-        String input = "0123456789";
+        String input = "0123456789A";
 
-        String output = TextAligner.formatCenter(input, WIDTH);
+        String output = TextAligner.formatCenter(input, ODD_WIDTH);
 
-        Assertions.assertEquals("     0123456789     ", output);
+        Assertions.assertEquals("     0123456789A     ", output);
     }
 
     @Test
     public void EvenInputIsSmallerThanEvenWidth() {
         String input = "0123456789";
 
-        String output = TextAligner.formatCenter(input, WIDTH);
+        String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
         Assertions.assertEquals("     0123456789     ", output);
     }
 
-    @Disabled
     @Test
     public void OddInputIsSmallerThanEvenWidth() {
-        String input = "0123456789";
+        String input = "0123456789A";
 
-        String output = TextAligner.formatCenter(input, WIDTH);
+        String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
-        Assertions.assertEquals("     0123456789     ", output);
+        Assertions.assertEquals("    0123456789A     ", output);
     }
 
-    @Disabled
     @Test
     public void EvenInputIsSmallerThanOddWidth() {
         String input = "0123456789";
 
-        String output = TextAligner.formatCenter(input, WIDTH);
+        String output = TextAligner.formatCenter(input, ODD_WIDTH);
 
-        Assertions.assertEquals("     0123456789     ", output);
+        Assertions.assertEquals("     0123456789      ", output);
     }
 
     @Disabled
@@ -51,7 +49,7 @@ public class CenterAlignerTest {
     public void inputIsBiggerThanWidth() {
         String input = "01234567890123456789 01234567890123456789";
 
-        String output = TextAligner.formatCenter(input, WIDTH);
+        String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
         Assertions.assertEquals("01234567890123456789\n01234567890123456789", output);
     }
@@ -61,7 +59,7 @@ public class CenterAlignerTest {
     public void inputIsAnEmptyString() {
         String input = "";
 
-        String output = TextAligner.formatCenter(input, WIDTH);
+        String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -71,7 +69,7 @@ public class CenterAlignerTest {
     public void inputIsMadeOnlyOfSpaces() {
         String input = "   ";
 
-        String output = TextAligner.formatCenter(input, WIDTH);
+        String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -81,7 +79,7 @@ public class CenterAlignerTest {
     public void LineBreaksExactlyBetweenWords() {
         String input = "01234567890123456789 0123456789";
 
-        String output = TextAligner.formatCenter(input, WIDTH);
+        String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
@@ -91,7 +89,7 @@ public class CenterAlignerTest {
     public void inputHasContiguousSpacesBetweenWords() {
         String input = "0123456789   0123456789";
 
-        String output = TextAligner.formatCenter(input, WIDTH);
+        String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
         Assertions.assertEquals("This text \nshould be \nleft \naligned ", output);
     }
