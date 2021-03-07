@@ -67,11 +67,11 @@ public class CenterAlignerTest {
 
     @Test
     public void inputIsMadeOnlyOfSpaces() {
-        String input = "  ";
+        String input = "                                                          ";
 
         String output = TextAligner.formatCenter(input, EVEN_WIDTH);
 
-        Assertions.assertEquals("                    ", output);
+        Assertions.assertEquals("", output);
     }
 
     @Disabled

@@ -61,6 +61,8 @@ public class TextAligner {
     }
 
     public static String formatCenter(String input, int width) {
+        input = input.trim().replaceAll(" +", " "); // allow only single space == remove multiple spaces
+
         StringBuilder output = new StringBuilder();
         int startIndex = 0;
         int endIndex = width - 1;
